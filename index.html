@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration for Midhat</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background: #232334;
+            border: 1px solid #3f3f5a;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #4ef0a5;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .quote-box {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: #1a1a26;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4ef0a5;
+        }
+
+        #quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: #e0e0e0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn {
+            background: #4ef0a5;
+            color: #1e1e2f;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(78, 240, 165, 0.3);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background: #3dd893;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Keep Coding, Midhat! 🚀</h1>
+        <p class="subtitle">Every line of code is a step closer to your goals.</p>
+        
+        <div class="quote-box">
+            <p id="quote">Click the button below to get an instant spark of motivation!</p>
+        </div>
+
+        <button class="btn" onclick="generateQuote()">Click for Inspiration</button>
+    </div>
+
+    <script>
+        const quotes = [
+            "\"Embrace the bugs! Every mistake you debug makes you a sharper, better programmer.\"",
+            "\"Don't worry if the whole project feels overwhelming. Focus on one tag or one function at a time.\"",
+            "\"Coding is a superpower. You are building something out of nothing but logic and imagination!\"",
+            "\"The best way to predict the future is to invent it. Keep coding your vision.\"",
+            "\"Great developers aren't born; they are built through patience, practice, and persistence.\"",
+            "\"Every expert was once a beginner who refused to give up. You've got this!\""
+        ];
+
+        let lastIndex = -1;
+
+        function generateQuote() {
+            const quoteElement = document.getElementById("quote");
+            let randomIndex;
+            
+            // Ensure the same quote doesn't appear twice in a row
+            do {
+                randomIndex = Math.floor(Math.random() * quotes.length);
+            } while (randomIndex === lastIndex);
+
+            lastIndex = randomIndex;
+
+            // Simple fade effect via opacity toggle
+            quoteElement.style.opacity = 0;
+            setTimeout(() => {
+                quoteElement.textContent = quotes[randomIndex];
+                quoteElement.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>
